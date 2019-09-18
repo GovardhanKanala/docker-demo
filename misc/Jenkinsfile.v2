@@ -15,7 +15,7 @@ node {
      myTestContainer.inside {
        sh 'chown -R $USER:$USER /usr/local/bin/npm'
        sh 'rm -fr /var/lib/jenkins/package-lock.json'
-       sh 'npm install --only=dev'
+       sh 'sudo npm install --unsafe-perm=true --allow-root --only=dev'
        sh 'npm test'
      }
    }
