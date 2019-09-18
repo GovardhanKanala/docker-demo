@@ -6,9 +6,9 @@ node {
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('test') {
-     sh 'sudo chown -R jenkins ~/.npm'
-     sh 'rm -fr package-lock.json'
-     sh 'sudo chown -R jenkins /home/jenkins/.config'
+     sh 'sudo chown -R jenkins /var/lib/jenkins/.npm'
+     sh 'rm -fr /var/lib/jenkins/package-lock.json'
+     sh 'sudo chown -R jenkins /var/lib/jenkins/.config'
      
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
