@@ -8,7 +8,7 @@ node {
    stage('test') {
      sh 'chown -R jenkins /var/lib/jenkins/.npm'
      sh 'rm -fr /var/lib/jenkins/package-lock.json'
-     sh 'chown -R jenkins /var/lib/jenkins/.config'
+     
      
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
